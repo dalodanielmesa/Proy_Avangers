@@ -1,0 +1,6539 @@
+:root {
+  --container-padding: 35px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+#section {
+  background-color: #965151;
+  overscroll-behavior-y: contain;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height:100%;
+
+}
+
+button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1em;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  font-family: avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.app-layout {
+  top:1vh;
+  background-color: rgb(218, 27, 27);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  margin-top: auto;
+  position: absolute;
+  overflow: hidden;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: calc(var(--container-padding) / 1.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 800px;
+}
+.app-layout__system-bar {
+  position: relative;
+  z-index: 100500;
+}
+.app-layout__system-bar img {
+  width: 100%;
+}
+
+.container {
+  padding: 0 var(--container-padding);
+}
+
+.slider {
+  height: 100%;
+}
+
+.slider__container {
+  position: relative;
+  height: 100%;
+}
+
+.slider__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: right center;
+  will-change: transform, opacity;
+}
+
+.slider__inner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  will-change: box-shadow;
+  border-radius: 20px;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+.slider__inner > video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.screen-modal__scroll {
+  height: 100%;
+  will-change: transform, opacity;
+}
+.screen-modal__scroll > div {
+  height: 100%;
+  overflow: auto;
+}
+
+.screen-modal-root {
+  --container-padding2: calc(var(--container-padding) / 1.5);
+  --container-padding3: calc(var(--container-padding) / 2);
+  --margin: calc(var(--container-padding) / 4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.screen-modal-root > .container {
+  will-change: transform, opacity;
+}
+.screen-modal-root .container {
+  padding: 0 var(--container-padding2);
+}
+
+.screen-modal {
+  background-color: white;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  will-change: transform;
+}
+.screen-modal .container {
+  padding: var(--container-padding3) var(--container-padding2);
+}
+.screen-modal .screen-modal__content {
+  padding-top: var(--container-padding);
+  border-bottom: 1px solid #d8d8d8;
+}
+.screen-modal .screen-modal__content .header__title {
+  margin-bottom: var(--margin);
+  padding-right: 0;
+}
+.screen-modal .screen-modal__content .header__address {
+  margin-bottom: var(--margin);
+}
+.screen-modal p {
+  margin-top: 0;
+}
+
+.header {
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+  margin: 20px 0;
+  will-change: transform, opacity;
+}
+.header > div {
+  position: absolute;
+  will-change: transform, opacity;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.header__item {
+  width: 100%;
+}
+
+.header__title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.header__address {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: baseline;
+  font-style: normal;
+}
+.header__address .fas {
+  margin-right: 10px;
+}
+
+.header__date {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.button {
+  padding: calc(var(--container-padding) / 3);
+}
+
+.events-screen {
+  height: 100%;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.events-screen__slider {
+  position: relative;
+  margin-bottom: 25px;
+  width: 78%;
+  flex: 1;
+}
+.events-screen__slider .slider {
+  padding-left: var(--container-padding);
+}
+
+.burger-button {
+  font-size: 25px;
+}
+
+.event-button {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.event-button .fas {
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.nav-bar__back {
+  padding-left: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+}
+.nav-bar__back .fas {
+  margin-right: 20px;
+}
+
+.credits {
+  font-size: 0.8em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.credits a {
+  font-weight: 600;
+  color: #91a7ff;
+  text-decoration: none;
+}
+.credits a:hover {
+  color: #5c7cfa;
+  text-decoration: underline;
+}
+
+.love {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/42764/heart-smil.svg);
+  display: inline-block;
+  height: 16px;
+  vertical-align: middle;
+  width: 16px;
+}
+
+body {
+	background: #eee; /* For visibility of elements. */
+}
+
+div.mini-card-grid {
+  top:100vh;
+	bottom: 0px;
+	box-sizing: border-box;
+	color: #ffffff;
+	display: flex;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	overflow: scroll auto;
+	overflow-x: scroll;
+	padding: 3rem 0px 3rem 2rem;
+	position: relative;
+	right: 0px;
+
+}
+
+article#mini-post-342750.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-342750.mini-card.module.module-article.article:focus-within {
+	transform: translate(-0.5rem, -1rem) rotate(3deg);
+}
+
+article#mini-post-342750.mini-card.module.module-article.article:hover {
+	transform: translate(-0.5rem, -1rem) rotate(3deg);
+}
+
+time {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+h3.mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+a {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+a:focus {
+	opacity: 0.66;
+}
+
+a:hover {
+	opacity: 0.66;
+}
+
+div.tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/avif\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/avif\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/avif\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/image-set\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/image-set\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/image-set\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/picture\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/picture\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/picture\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/srcset\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/srcset\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/srcset\/"]:hover {
+	opacity: 0.66;
+}
+
+div.author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+div.author-row:last-child {
+	margin-bottom: 0px;
+}
+
+[aria-label="Author\ page\ of\ Ollie\ Williams"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+[aria-label="Author\ page\ of\ Ollie\ Williams"]:focus {
+	opacity: 0.66;
+}
+
+[aria-label="Author\ page\ of\ Ollie\ Williams"]:hover {
+	opacity: 0.66;
+}
+
+img.avatar.avatar-80.photo.jetpack-lazy-image.jetpack-lazy-image--handled {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+a.author-name {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+a.author-name:focus {
+	opacity: 0.66;
+}
+
+a.author-name:hover {
+	opacity: 0.66;
+}
+
+a.author-name:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-342448.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-342448.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342448.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342448.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+#mini-post-342448 time {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+#mini-post-342448 strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-342448 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/how-to-create-css-charts-with-interesting-shapes-glyphs-and-emoji\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/how-to-create-css-charts-with-interesting-shapes-glyphs-and-emoji\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/how-to-create-css-charts-with-interesting-shapes-glyphs-and-emoji\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342448 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/charts\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/charts\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/charts\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/css-shapes\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/css-shapes\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/css-shapes\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/emoji\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/emoji\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/emoji\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/glyphs\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/glyphs\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/glyphs\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/svg\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/svg\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/svg\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342448 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-342448 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+[aria-label="Author\ page\ of\ Preethi"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+[aria-label="Author\ page\ of\ Preethi"]:focus {
+	opacity: 0.66;
+}
+
+[aria-label="Author\ page\ of\ Preethi"]:hover {
+	opacity: 0.66;
+}
+
+[src="https\3A \/\/secure\.gravatar\.com\/avatar\/f0607686c32fd18a7af74392a2652860\?s\=80\&d\=retro\&r\=pg"] {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+[aria-label="Author\ page\ of\ Preethi"] noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"]:focus {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"]:hover {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"]:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-341948.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-341948.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341948.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341948.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-17"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-17"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-341948 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/perfect-tooltips-with-css-clipping-and-masking\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/perfect-tooltips-with-css-clipping-and-masking\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/perfect-tooltips-with-css-clipping-and-masking\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341948 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/clip-path\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/clip-path\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/clip-path\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/mask-image\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/mask-image\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/mask-image\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/tooltip\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/tooltip\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/tooltip\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341948 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-341948 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+[aria-label="Author\ page\ of\ Louis\ Hoebregts"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+[aria-label="Author\ page\ of\ Louis\ Hoebregts"]:focus {
+	opacity: 0.66;
+}
+
+[aria-label="Author\ page\ of\ Louis\ Hoebregts"]:hover {
+	opacity: 0.66;
+}
+
+[src="https\3A \/\/secure\.gravatar\.com\/avatar\/6dc6baa4357590d186c93044b3d1b9fc\?s\=80\&d\=retro\&r\=pg"] {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+[aria-label="Author\ page\ of\ Louis\ Hoebregts"] noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"]:focus {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"]:hover {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"]:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-342818.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-342818.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342818.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342818.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-24"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-24"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-342818 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/chapter-9-community\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/chapter-9-community\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/chapter-9-community\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342818 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/social\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/social\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/social\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342818 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-342818 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+[aria-label="Author\ page\ of\ Jay\ Hoffmann"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+[aria-label="Author\ page\ of\ Jay\ Hoffmann"]:focus {
+	opacity: 0.66;
+}
+
+[aria-label="Author\ page\ of\ Jay\ Hoffmann"]:hover {
+	opacity: 0.66;
+}
+
+[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2dcef6cf0bd7c3698c903177ec0ee58f\?s\=80\&d\=retro\&r\=pg"] {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+[aria-label="Author\ page\ of\ Jay\ Hoffmann"] noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"]:focus {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"]:hover {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"]:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-342925.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-342925.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342925.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342925.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-22"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-22"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-342925 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/if-were-gonna-criticize-utility-class-frameworks-lets-be-fair-about-it\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/if-were-gonna-criticize-utility-class-frameworks-lets-be-fair-about-it\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/if-were-gonna-criticize-utility-class-frameworks-lets-be-fair-about-it\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342925 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/inline-styles\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/inline-styles\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/inline-styles\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/tailwind\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/tailwind\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/tailwind\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/utility-classes\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/utility-classes\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/utility-classes\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342925 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-342925 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+#mini-post-342925 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+#mini-post-342925 [aria-label="Author\ page\ of\ Chris\ Coyier"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-342925 [aria-label="Author\ page\ of\ Chris\ Coyier"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342925 .avatar {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+#mini-post-342925 noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+#mini-post-342925 .author-name {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+#mini-post-342925 .author-name:focus {
+	opacity: 0.66;
+}
+
+#mini-post-342925 .author-name:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342925 .author-name:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-341584.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-341584.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341584.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341584.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-03"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-03"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-341584 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341584 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/float\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/float\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/float\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/grid\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/grid\/"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/grid\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/layout\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/layout\/"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/layout\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341584 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-341584 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+[aria-label="Author\ page\ of\ Temani\ Afif"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+[aria-label="Author\ page\ of\ Temani\ Afif"]:focus {
+	opacity: 0.66;
+}
+
+[aria-label="Author\ page\ of\ Temani\ Afif"]:hover {
+	opacity: 0.66;
+}
+
+[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2c12e74c8162614e08a31d704ed9e193\?s\=80\&d\=retro\&r\=pg"] {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+[aria-label="Author\ page\ of\ Temani\ Afif"] noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"]:focus {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"]:hover {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"]:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-342248.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-342248.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342248.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342248.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-15"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-15"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-342248 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/just-how-niche-is-headless-wordpress\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/just-how-niche-is-headless-wordpress\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/just-how-niche-is-headless-wordpress\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342248 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/headless-cms\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/headless-cms\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/headless-cms\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/wordpress\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/wordpress\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/wordpress\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/wordpress-json-api\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/wordpress-json-api\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/wordpress-json-api\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342248 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-342248 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+#mini-post-342248 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+#mini-post-342248 [aria-label="Author\ page\ of\ Chris\ Coyier"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-342248 [aria-label="Author\ page\ of\ Chris\ Coyier"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342248 .avatar {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+#mini-post-342248 noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+#mini-post-342248 .author-name {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+#mini-post-342248 .author-name:focus {
+	opacity: 0.66;
+}
+
+#mini-post-342248 .author-name:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342248 .author-name:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-341342.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-341342.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341342.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341342.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-01"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-01"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-341342 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/front-end-testing-is-for-everyone\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/front-end-testing-is-for-everyone\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/front-end-testing-is-for-everyone\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341342 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#mini-post-341342
+	[href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-341342
+	[href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/performance\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#mini-post-341342
+	[href="https\3A \/\/css-tricks\.com\/tag\/performance\/"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-341342
+	[href="https\3A \/\/css-tricks\.com\/tag\/performance\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/testing\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/testing\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/testing\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/unit-tests\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/unit-tests\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/unit-tests\/"]:hover {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/visual-testing\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/visual-testing\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/tag\/visual-testing\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341342 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-341342 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"]:focus {
+	opacity: 0.66;
+}
+
+[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"]:hover {
+	opacity: 0.66;
+}
+
+img.avatar.avatar-80.photo.jetpack-lazy-image {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"]:focus {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"]:hover {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"]:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-342358.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-342358.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342358.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-342358.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-16"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-16"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-342358 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/inline-styles-as-classes-lol\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/inline-styles-as-classes-lol\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/inline-styles-as-classes-lol\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342358 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-342358 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+#mini-post-342358 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+#mini-post-342358 [aria-label="Author\ page\ of\ Chris\ Coyier"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-342358 [aria-label="Author\ page\ of\ Chris\ Coyier"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342358 .avatar {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+#mini-post-342358 noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+#mini-post-342358 .author-name {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+#mini-post-342358 .author-name:focus {
+	opacity: 0.66;
+}
+
+#mini-post-342358 .author-name:hover {
+	opacity: 0.66;
+}
+
+#mini-post-342358 .author-name:last-child {
+	margin-bottom: 0px;
+}
+
+article#mini-post-341982.mini-card.module.module-article.article {
+	background: linear-gradient(85deg, #434343, #262626);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-radius: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	bottom: 0px;
+	box-shadow: #000000 -2rem 0px 3rem -2rem;
+	box-sizing: border-box;
+	clear: both;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	left: 0px;
+	line-height: 27.2px;
+	margin: 0px;
+	min-height: 350px;
+	min-width: 300px;
+	padding: 1.5rem;
+	position: relative;
+	right: 0px;
+	top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+article#mini-post-341982.mini-card.module.module-article.article:focus-within {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341982.mini-card.module.module-article.article:hover {
+	transform: translateY(-1rem) rotate(3deg);
+}
+
+article#mini-post-341982.mini-card.module.module-article.article:not(:first-child) {
+	box-shadow: #000000 -3rem 0px 3rem -2rem;
+	margin-left: -130px;
+}
+
+[datetime="2021-06-08"] {
+	box-sizing: border-box;
+	color: #777777;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 27.2px;
+	margin: 0px 0px 0.25rem;
+}
+
+[datetime="2021-06-08"] strong {
+	box-sizing: border-box;
+	color: #d4d4d4;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 27.2px;
+}
+
+#mini-post-341982 .mini-card-title {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: -0.03rem;
+	line-height: 1.1;
+	margin: 0px 0px 1rem;
+}
+
+[href="https\3A \/\/css-tricks\.com\/looking-at-wcag-2-5-5-for-better-target-sizes\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 20.8px;
+	font-weight: 800;
+	letter-spacing: -0.48px;
+	line-height: 22.88px;
+	text-decoration: none;
+}
+
+[href="https\3A \/\/css-tricks\.com\/looking-at-wcag-2-5-5-for-better-target-sizes\/"]:focus {
+	opacity: 0.66;
+}
+
+[href="https\3A \/\/css-tricks\.com\/looking-at-wcag-2-5-5-for-better-target-sizes\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341982 .tags {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 1;
+	margin: 0px 0px 0.5rem;
+}
+
+#mini-post-341982 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+	box-sizing: border-box;
+	color: #ff7a18;
+	cursor: pointer;
+	font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+		"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+	font-size: 0.66rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 10.56px;
+	margin-inline-end: 0.66rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#mini-post-341982
+	[href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"]:focus {
+	opacity: 0.66;
+}
+
+#mini-post-341982
+	[href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"]:hover {
+	opacity: 0.66;
+}
+
+#mini-post-341982 .author-row {
+	align-items: center;
+	box-sizing: border-box;
+	color: #565656;
+	display: grid;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	gap: 0.5rem;
+	grid-template-columns: 40px 1fr;
+	line-height: 1.3;
+	margin-block-start: auto;
+	padding-top: 0.5rem;
+}
+
+#mini-post-341982 .author-row:last-child {
+	margin-bottom: 0px;
+}
+
+[aria-label="Author\ page\ of\ Todd\ Libby"] {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+[aria-label="Author\ page\ of\ Todd\ Libby"]:focus {
+	opacity: 0.66;
+}
+
+[aria-label="Author\ page\ of\ Todd\ Libby"]:hover {
+	opacity: 0.66;
+}
+
+img.avatar.avatar-80.photo.avatar-default.jetpack-lazy-image {
+	border: 0px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 40px;
+	line-height: 20.8px;
+	margin-right: 0.5rem;
+	max-width: 100%;
+	width: 40px;
+}
+
+[aria-label="Author\ page\ of\ Todd\ Libby"] noscript {
+	box-sizing: border-box;
+	color: #0089c7;
+	cursor: pointer;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: 20.8px;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"] {
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: block;
+	font-family: "Sentinel SSm A", "Sentinel SSm B", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 700;
+	line-height: 20.8px;
+	text-decoration: none;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"]:focus {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"]:hover {
+	opacity: 0.66;
+}
+
+.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"]:last-child {
+	margin-bottom: 0px;
+}
+
+@media all {
+	div.mini-card-grid {
+		box-sizing: border-box;
+		display: flex;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		margin: 0px;
+		overflow-x: scroll;
+		padding: 3rem 0px 3rem 2rem;
+		position: relative;
+	}
+
+	article#mini-post-342750.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	time {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	h3.mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	a {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	div.tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/avif\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/image-set\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/picture\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/srcset\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	div.author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	div.author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	[aria-label="Author\ page\ of\ Ollie\ Williams"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	img.avatar.avatar-80.photo.jetpack-lazy-image.jetpack-lazy-image--handled {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	noscript {
+		box-sizing: border-box;
+	}
+
+	a.author-name {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	a.author-name:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	#mini-post-342448 time {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	#mini-post-342448 strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-342448 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/how-to-create-css-charts-with-interesting-shapes-glyphs-and-emoji\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-342448 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/charts\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/css-shapes\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/emoji\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/glyphs\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/svg\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-342448 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-342448 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	[aria-label="Author\ page\ of\ Preethi"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/f0607686c32fd18a7af74392a2652860\?s\=80\&d\=retro\&r\=pg"] {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	[aria-label="Author\ page\ of\ Preethi"] noscript {
+		box-sizing: border-box;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"] {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"]:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-17"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-17"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-341948 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/perfect-tooltips-with-css-clipping-and-masking\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-341948 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/clip-path\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/mask-image\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tooltip\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-341948 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-341948 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	[aria-label="Author\ page\ of\ Louis\ Hoebregts"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/6dc6baa4357590d186c93044b3d1b9fc\?s\=80\&d\=retro\&r\=pg"] {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	[aria-label="Author\ page\ of\ Louis\ Hoebregts"] noscript {
+		box-sizing: border-box;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"] {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"]:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-24"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-24"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-342818 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/chapter-9-community\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-342818 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/social\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-342818 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-342818 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	[aria-label="Author\ page\ of\ Jay\ Hoffmann"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2dcef6cf0bd7c3698c903177ec0ee58f\?s\=80\&d\=retro\&r\=pg"] {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	[aria-label="Author\ page\ of\ Jay\ Hoffmann"] noscript {
+		box-sizing: border-box;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"] {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"]:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-22"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-22"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-342925 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/if-were-gonna-criticize-utility-class-frameworks-lets-be-fair-about-it\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-342925 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/inline-styles\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tailwind\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/utility-classes\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-342925 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-342925 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	#mini-post-342925 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	#mini-post-342925 .avatar {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	#mini-post-342925 noscript {
+		box-sizing: border-box;
+	}
+
+	#mini-post-342925 .author-name {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	#mini-post-342925 .author-name:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-03"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-03"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-341584 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-341584 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/float\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/grid\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/layout\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-341584 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-341584 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	[aria-label="Author\ page\ of\ Temani\ Afif"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2c12e74c8162614e08a31d704ed9e193\?s\=80\&d\=retro\&r\=pg"] {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	[aria-label="Author\ page\ of\ Temani\ Afif"] noscript {
+		box-sizing: border-box;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"] {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"]:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-15"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-15"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-342248 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/just-how-niche-is-headless-wordpress\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-342248 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/headless-cms\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress-json-api\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-342248 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-342248 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	#mini-post-342248 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	#mini-post-342248 .avatar {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	#mini-post-342248 noscript {
+		box-sizing: border-box;
+	}
+
+	#mini-post-342248 .author-name {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	#mini-post-342248 .author-name:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-01"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-01"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-341342 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/front-end-testing-is-for-everyone\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-341342 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/performance\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/testing\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/unit-tests\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/visual-testing\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-341342 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-341342 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	img.avatar.avatar-80.photo.jetpack-lazy-image {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] noscript {
+		box-sizing: border-box;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"] {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"]:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-16"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-16"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-342358 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/inline-styles-as-classes-lol\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-342358 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-342358 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	#mini-post-342358 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	#mini-post-342358 .avatar {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	#mini-post-342358 noscript {
+		box-sizing: border-box;
+	}
+
+	#mini-post-342358 .author-name {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	#mini-post-342358 .author-name:last-child {
+		margin-bottom: 0px;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article {
+		background: linear-gradient(85deg, #434343, #262626);
+		border-radius: 16px;
+		box-shadow: #000000 -2rem 0px 3rem -2rem;
+		box-sizing: border-box;
+		clear: both;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		margin: 0px;
+		min-height: 350px;
+		min-width: 300px;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article:not(:first-child) {
+		box-shadow: #000000 -3rem 0px 3rem -2rem;
+		margin-left: -130px;
+	}
+
+	[datetime="2021-06-08"] {
+		box-sizing: border-box;
+		color: #777777;
+		display: block;
+		margin: 0px 0px 0.25rem;
+	}
+
+	[datetime="2021-06-08"] strong {
+		box-sizing: border-box;
+		color: #d4d4d4;
+		font-weight: 700;
+	}
+
+	#mini-post-341982 .mini-card-title {
+		box-sizing: border-box;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 1.3rem;
+		font-style: normal;
+		font-weight: 800;
+		letter-spacing: -0.03rem;
+		line-height: 1.1;
+		margin: 0px 0px 1rem;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/looking-at-wcag-2-5-5-for-better-target-sizes\/"] {
+		box-sizing: border-box;
+		color: #ffffff !important;
+		text-decoration: none;
+	}
+
+	#mini-post-341982 .tags {
+		box-sizing: border-box;
+		line-height: 1;
+		margin: 0px 0px 0.5rem;
+	}
+
+	#mini-post-341982 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		box-sizing: border-box;
+		color: #ff7a18;
+		font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Rubik, Lato,
+			"Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+		font-size: 0.66rem;
+		font-style: normal;
+		font-weight: 800;
+		margin-inline-end: 0.66rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	#mini-post-341982 .author-row {
+		align-items: center;
+		box-sizing: border-box;
+		color: #565656;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: 40px 1fr;
+		line-height: 1.3;
+		margin-block-start: auto;
+		padding-top: 0.5rem;
+	}
+
+	#mini-post-341982 .author-row:last-child {
+		margin-bottom: 0px;
+	}
+
+	[aria-label="Author\ page\ of\ Todd\ Libby"] {
+		box-sizing: border-box;
+		color: #0089c7;
+		text-decoration: none;
+	}
+
+	img.avatar.avatar-80.photo.avatar-default.jetpack-lazy-image {
+		border: 0px;
+		border-radius: 50%;
+		box-sizing: border-box;
+		height: 40px;
+		margin-right: 0.5rem;
+		max-width: 100%;
+		width: 40px;
+	}
+
+	[aria-label="Author\ page\ of\ Todd\ Libby"] noscript {
+		box-sizing: border-box;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"] {
+		box-sizing: border-box;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"]:last-child {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	div.mini-card-grid {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-342750.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	time {
+		transition: all 0s ease 0s !important;
+	}
+
+	strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	h3.mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	a {
+		transition: all 0s ease 0s !important;
+	}
+
+	div.tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/avif\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/image-set\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/picture\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/srcset\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	div.author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Ollie\ Williams"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	img.avatar.avatar-80.photo.jetpack-lazy-image.jetpack-lazy-image--handled {
+		transition: all 0s ease 0s !important;
+	}
+
+	noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	a.author-name {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342448 time {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342448 strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342448 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/how-to-create-css-charts-with-interesting-shapes-glyphs-and-emoji\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342448 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/charts\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/css-shapes\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/emoji\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/glyphs\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/svg\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342448 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Preethi"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/f0607686c32fd18a7af74392a2652860\?s\=80\&d\=retro\&r\=pg"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Preethi"] noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-17"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-17"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341948 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/perfect-tooltips-with-css-clipping-and-masking\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341948 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/clip-path\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/mask-image\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tooltip\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341948 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Louis\ Hoebregts"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/6dc6baa4357590d186c93044b3d1b9fc\?s\=80\&d\=retro\&r\=pg"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Louis\ Hoebregts"] noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-24"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-24"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342818 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/chapter-9-community\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342818 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/social\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342818 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Jay\ Hoffmann"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2dcef6cf0bd7c3698c903177ec0ee58f\?s\=80\&d\=retro\&r\=pg"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Jay\ Hoffmann"] noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-22"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-22"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342925 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/if-were-gonna-criticize-utility-class-frameworks-lets-be-fair-about-it\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342925 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/inline-styles\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tailwind\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/utility-classes\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342925 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342925 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342925 .avatar {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342925 noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342925 .author-name {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-03"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-03"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341584 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341584 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/float\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/grid\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/layout\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341584 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Temani\ Afif"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2c12e74c8162614e08a31d704ed9e193\?s\=80\&d\=retro\&r\=pg"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Temani\ Afif"] noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-15"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-15"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342248 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/just-how-niche-is-headless-wordpress\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342248 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/headless-cms\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress-json-api\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342248 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342248 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342248 .avatar {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342248 noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342248 .author-name {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-01"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-01"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341342 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/front-end-testing-is-for-everyone\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341342 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/performance\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/testing\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/unit-tests\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/visual-testing\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341342 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	img.avatar.avatar-80.photo.jetpack-lazy-image {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-16"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-16"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342358 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/inline-styles-as-classes-lol\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342358 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342358 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342358 .avatar {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342358 noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-342358 .author-name {
+		transition: all 0s ease 0s !important;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-08"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	[datetime="2021-06-08"] strong {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341982 .mini-card-title {
+		transition: all 0s ease 0s !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/looking-at-wcag-2-5-5-for-better-target-sizes\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341982 .tags {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341982 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	#mini-post-341982 .author-row {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Todd\ Libby"] {
+		transition: all 0s ease 0s !important;
+	}
+
+	img.avatar.avatar-80.photo.avatar-default.jetpack-lazy-image {
+		transition: all 0s ease 0s !important;
+	}
+
+	[aria-label="Author\ page\ of\ Todd\ Libby"] noscript {
+		transition: all 0s ease 0s !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"] {
+		transition: all 0s ease 0s !important;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	div.mini-card-grid {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-342750.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	time {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	h3.mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	a {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	div.tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/avif\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/image-set\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/picture\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/srcset\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	div.author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Ollie\ Williams"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	img.avatar.avatar-80.photo.jetpack-lazy-image.jetpack-lazy-image--handled {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	a.author-name {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342448 time {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342448 strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342448 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/how-to-create-css-charts-with-interesting-shapes-glyphs-and-emoji\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342448 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/charts\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/css-shapes\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/emoji\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/glyphs\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/svg\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342448 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Preethi"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/f0607686c32fd18a7af74392a2652860\?s\=80\&d\=retro\&r\=pg"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Preethi"] noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-17"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-17"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341948 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/perfect-tooltips-with-css-clipping-and-masking\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341948 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/clip-path\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/mask-image\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tooltip\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341948 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Louis\ Hoebregts"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/6dc6baa4357590d186c93044b3d1b9fc\?s\=80\&d\=retro\&r\=pg"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Louis\ Hoebregts"] noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-24"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-24"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342818 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/chapter-9-community\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342818 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/social\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342818 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Jay\ Hoffmann"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2dcef6cf0bd7c3698c903177ec0ee58f\?s\=80\&d\=retro\&r\=pg"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Jay\ Hoffmann"] noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-22"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-22"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342925 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/if-were-gonna-criticize-utility-class-frameworks-lets-be-fair-about-it\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342925 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/inline-styles\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tailwind\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/utility-classes\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342925 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342925 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342925 .avatar {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342925 noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342925 .author-name {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-03"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-03"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341584 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341584 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/float\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/grid\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/layout\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341584 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Temani\ Afif"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[src="https\3A \/\/secure\.gravatar\.com\/avatar\/2c12e74c8162614e08a31d704ed9e193\?s\=80\&d\=retro\&r\=pg"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Temani\ Afif"] noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-15"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-15"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342248 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/just-how-niche-is-headless-wordpress\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342248 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/headless-cms\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress-json-api\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342248 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342248 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342248 .avatar {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342248 noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342248 .author-name {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-01"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-01"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341342 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/front-end-testing-is-for-everyone\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341342 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/performance\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/testing\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/unit-tests\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/visual-testing\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341342 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	img.avatar.avatar-80.photo.jetpack-lazy-image {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-16"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-16"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342358 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/inline-styles-as-classes-lol\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342358 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342358 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342358 .avatar {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342358 noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-342358 .author-name {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-08"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[datetime="2021-06-08"] strong {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341982 .mini-card-title {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/looking-at-wcag-2-5-5-for-better-target-sizes\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341982 .tags {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341982 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	#mini-post-341982 .author-row {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Todd\ Libby"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	img.avatar.avatar-80.photo.avatar-default.jetpack-lazy-image {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	[aria-label="Author\ page\ of\ Todd\ Libby"] noscript {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"] {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+@media (max-width: 1200px) {
+	div.mini-card-grid {
+		overflow-x: visible;
+	}
+
+	article#mini-post-342750.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-342750.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article {
+		min-width: 220px;
+		scroll-snap-align: start;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -30px;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+}
+
+@media (max-width: 800px) {
+	article#mini-post-342750.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-342750.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-342448.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-341948.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-342818.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-342925.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-341584.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-342248.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-341342.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-342358.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article {
+		min-width: 190px;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article:not(:first-child) {
+		margin-left: -10px;
+	}
+
+	article#mini-post-341982.mini-card.module.module-article.article:hover {
+		transform: translateY(-1rem);
+	}
+}
+
+@media print {
+	time {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	a {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	div.tags {
+		display: none !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/avif\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/image-set\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/picture\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/srcset\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[aria-label="Author\ page\ of\ Ollie\ Williams"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	a.author-name {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342448 time {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/how-to-create-css-charts-with-interesting-shapes-glyphs-and-emoji\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342448 .tags {
+		display: none !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/charts\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/css-shapes\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/emoji\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/glyphs\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/svg\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[aria-label="Author\ page\ of\ Preethi"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/preethisamathanam\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-17"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/perfect-tooltips-with-css-clipping-and-masking\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-341948 .tags {
+		display: none !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/clip-path\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/mask-image\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tooltip\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[aria-label="Author\ page\ of\ Louis\ Hoebregts"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/louishoebregts\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-24"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/chapter-9-community\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342818 .tags {
+		display: none !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/social\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[aria-label="Author\ page\ of\ Jay\ Hoffmann"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/jhoffm34\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-22"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/if-were-gonna-criticize-utility-class-frameworks-lets-be-fair-about-it\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342925 .tags {
+		display: none !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/inline-styles\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/tailwind\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/utility-classes\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342925 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342925 .author-name {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-03"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-341584 .tags {
+		display: none !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/float\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/grid\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-341584 [href="https\3A \/\/css-tricks\.com\/tag\/layout\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[aria-label="Author\ page\ of\ Temani\ Afif"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/afiftemani\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-15"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/just-how-niche-is-headless-wordpress\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342248 .tags {
+		display: none !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/headless-cms\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/wordpress-json-api\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342248 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342248 .author-name {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-01"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/front-end-testing-is-for-everyone\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-341342 .tags {
+		display: none !important;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-341342 [href="https\3A \/\/css-tricks\.com\/tag\/performance\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/testing\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/unit-tests\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/tag\/visual-testing\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[aria-label="Author\ page\ of\ Evgeny\ Klimenchenko"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/evgenyklimenchenko\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-16"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/inline-styles-as-classes-lol\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342358 [aria-label="Author\ page\ of\ Chris\ Coyier"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-342358 .author-name {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[datetime="2021-06-08"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[href="https\3A \/\/css-tricks\.com\/looking-at-wcag-2-5-5-for-better-target-sizes\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	#mini-post-341982 .tags {
+		display: none !important;
+	}
+
+	#mini-post-341982 [href="https\3A \/\/css-tricks\.com\/tag\/accessibility\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	[aria-label="Author\ page\ of\ Todd\ Libby"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+
+	.author-name[href="https\3A \/\/css-tricks\.com\/author\/toddlibby\/"] {
+		background: 0px 0px !important;
+		color: #000000 !important;
+	}
+}
